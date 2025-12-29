@@ -48,7 +48,7 @@ jobs:
         cd dist
         tree
         cd bin
-        ldd OmniMIDI.dll | grep "${MINGW_PREFIX}" | awk '{print $3}' | xargs -i cp {} .
+        cp "${MINGW_PREFIX}/bin/libwinpthread-1.dll" .
 
     - name: Download binaries
       run: |
