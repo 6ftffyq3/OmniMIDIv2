@@ -59,7 +59,7 @@ jobs:
         curl -L -o basswasapi24.zip https://www.un4seen.com/files/basswasapi24.zip
         curl -L -o bass_fx24.zip https://www.un4seen.com/files/z/0/bass_fx24.zip
 
-        curl -L -o fluidsynth-v2.5.2-win10-x64-glib.zip https://github.com/FluidSynth/fluidsynth/releases/download/v2.5.2/fluidsynth-v2.5.2-win10-x64-glib.zip
+        curl -L -o fluidsynth-v2.5.2-win10-x64-cpp11.zip https://github.com/FluidSynth/fluidsynth/releases/download/v2.5.2/fluidsynth-v2.5.2-win10-x64-cpp11.zip
 
         curl -L -o OmniMIDI/dist/bin/xsynth.dll https://github.com/BlackMIDIDevs/xsynth/releases/download/0.3.4/xsynth-windows-x64.dll
 
@@ -70,7 +70,7 @@ jobs:
         unzip -j basswasapi24.zip "x64/basswasapi.dll" -d OmniMIDI/dist/bin
         unzip -j bass_fx24.zip "x64/bass_fx.dll" -d OmniMIDI/dist/bin
 
-        unzip -j fluidsynth-v2.5.2-win10-x64-glib.zip "fluidsynth-v2.5.2-win10-x64-glib/bin/*.dll" -d OmniMIDI/dist/bin
+        unzip -j fluidsynth-v2.5.2-win10-x64-cpp11.zip "fluidsynth-v2.5.2-win10-x64-cpp11/bin/*.dll" -d OmniMIDI/dist/bin
 
     - name: Zip artifacts
       run: |

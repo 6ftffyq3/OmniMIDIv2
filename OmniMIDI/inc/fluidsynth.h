@@ -13,9 +13,8 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301, USA
+ * License along with this library; if not, see
+ * <https://www.gnu.org/licenses/>.
  */
 
 #ifndef _FLUIDSYNTH_H
@@ -30,7 +29,11 @@
 
 #include <stdio.h>
 
-#define BUILD_SHARED_LIBS 0
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define BUILD_SHARED_LIBS 1
 
 #if (BUILD_SHARED_LIBS == 0)
     #define FLUIDSYNTH_API // building static lib? no visibility control then
@@ -115,5 +118,15 @@
 //#include "fluidsynth/voice.h"
 //#include "fluidsynth/version.h"
 //#include "fluidsynth/ladspa.h"
+
+
+// patch FLUIDSYNTH_API -> FLUIDSYNTH_IMP:
+// search: ^(FLUID_DEPRECATED )?FLUIDSYNTH_API[ \n](.*? \**)((?:(?! ).)*?)\(
+// replace: $1extern $2(FLUIDSYNTH_IMP* $3)(
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _FLUIDSYNTH_H */
